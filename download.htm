@@ -1,0 +1,589 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <script type="text/javascript" src="JQuery/AdserveJScript.js"></script> 
+<script type="text/javascript" src="JQuery/jquery.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {        
+        GetAdvert('advert', 300, 250, 2);
+        GetAdvert('advert2', 300, 250, 2);
+        GetAdvert('advert3', 300, 250, 2);
+        GetAdvert('advert4', 350, 430, 2);
+        GetAdvert('advert5', 300, 250, 2);
+        GetAdvert('advert6', 300, 250, 2);
+        GetAdvert('advert7', 300, 250, 2);
+		GetAdvert('advert8', 300, 250, 2);
+		GetAdvert('advert9', 300, 250, 2);
+    });
+   
+</script>
+<script language="javascript" type="text/javascript"> 
+function test()
+{
+        var ExamNumber = document.getElementById("txtExamNumber");
+        var ExamYear = document.getElementById("drpExamYear");
+        var ExamType = document.getElementById("drpExamType");
+        var serial = document.getElementById("txtCardSerialNo");
+        var pin = document.getElementById("txtPIN");
+        if(trim(ExamNumber.value) == '')
+            {
+                alert('Examination Number cannot be blank');
+                return;
+            }
+            
+        if(trim(serial.value) == '')
+            {
+                alert('Serial Number cannot be blank');
+                return;
+            }
+          if(trim(pin.value) == '')
+            {
+                alert('PIN cannot be blank');
+                return;
+            }  
+        
+        var qrystr = '?ExamNumber=' + trim(ExamNumber.value) + '&ExamYear=' + ExamYear.value  + '&serial='  + trim(serial.value)  + '&pin='  + trim(pin.value)  + '&ExamType=' + ExamType.value;
+        //alert(qrystr);
+        window.open('DisplayResult.aspx' + qrystr, "", 'scrollbars,width=500,height=680');
+}
+
+function trim(str, chars) {
+
+    return ltrim(rtrim(str, chars), chars);
+
+}
+
+ 
+
+function ltrim(str, chars) {
+
+    chars = chars || "\\s";
+
+    return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
+
+}
+
+ 
+
+function rtrim(str, chars) {
+
+    chars = chars || "\\s";
+
+    return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
+
+}
+
+
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="stylesheet" href="windowfiles/dhtmlwindow.css" type="text/css" />
+<script type="text/javascript" src="windowfiles/dhtmlwindow.js"></script>
+
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+
+    
+<title>
+	WAECDIRECT ONLINE - RESULT CHECKER
+</title><link rel="STYLESHEET" type="text/css" href="include/waecdirect.css" />
+    <style type="text/css">
+<!--
+.style3 {color: #FFFFFF}
+.style4 {color: #FF0000}
+.style5 {
+	font-size: 14px;
+	color: #0000FF;
+}
+.style6 {color: #0000FF}
+.style8 {font-size: 10px}
+.style9 {font-size: 12px; color: #000000; }
+.style11 {font-size: 15px}
+.style12 {
+	font-size: 13px;
+	font-weight: bold;
+}
+.style14 {color: #FF0000; font-size: 14px; }
+.style16 {
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style18 {font-size: 10px; color: #FFFFFF; }
+-->
+    </style>
+
+	<style type="text/css">
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		.modal-content {
+			background-color: #FFEB3B;
+			margin: 4% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+		}
+		
+		.close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+    </style>
+	
+<!-- This code snippet checks traffic on the page -->
+
+<!--  <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15157798-1");
+pageTracker._trackPageview();
+} catch(err) {}</script> -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120443214-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+ 
+  gtag('config', 'UA-120443214-1');
+</script>
+
+</head>
+<body>
+<table width="100%" border="0">
+  <tr>
+    <td colspan="2">
+        
+        <table width='100%' height='100%' border='0' cellspacing='1' cellpadding='0' align='left'>
+      <tr>
+        <td width='100%' colspan='2'><img src='images/top.jpg' alt='WAEC logo' width='760' height='104' hspace='0' vspace='0'
+                    border='0' align='left' /> </td>
+      </tr>
+      <tr>
+        <td width='100%' colspan='2' class='darkblue'><a href='http://www.waecnigeria.org/'>Click here to visit our corporate website</a>&nbsp;|&nbsp; <a href='faq.htm'>FAQ</a>&nbsp;|&nbsp; <a href='megadealers.htm'>Result Checker Tokens Merchants/Outlets</a>&nbsp;|<!--&nbsp; <a href='channels.htm'>Alternative Channels</a>&nbsp;|--> </td>
+      </tr>
+      <tr>
+        <td width='0%' class='nightblue'> Home</td>
+        <td width='100%' bgcolor="#191970" class="style3"><font size="2"><strong>FOR A LIST OF e-PIN MEGA DEALERS'S OUTLETS, <a href="/megadealers.htm"
+                    class="style4">CLICK HERE</a>.</strong></font><br />
+            </td>
+      </tr>
+            
+      <tr>
+        <td valign="top" class='yellow'>
+		
+		<div>
+			<a id="complaintBtn" href="#" style="color: #fc2011;text-decoration: underline;font-weight: 800;font-size: 2em;"><b>Complaints on NEC Decision</b></a>
+		</div>
+            
+            <table width='260' height='100%' border='0' cellspacing='0' cellpadding='0' align='left' >
+            <tr>
+              <form method="post" action="./" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTUwMzU0MDM4OGRkESO4PAU/pd2fAkCV3P2Ru+LURJpiyOvX1CgmO9PMyKI=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+</div>
+                <td class='yellow' style='padding-top: 5px; padding-right: 20px; height: 250px;'><p> Examination Number
+                  <input id="txtExamNumber" maxlength="10" size="10" type="text" />
+                  
+                  </p>
+                    <p> Examination Year&nbsp;
+                        <select id="drpExamYear" name="ExamYear">
+						<option selected="selected" value="2023">2023</option>
+						<option  value="2022">2022</option>
+						<option  value="2021">2021</option>
+						<option  value="2020">2020</option>
+						
+                          <option  value="2019">2019</option>
+                          <option  value="2018">2018</option>
+						  <option  value="2017">2017</option>
+						  <option  value="2016">2016</option>
+                          <option  value="2015">2015</option>
+                          <option  value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
+							<option value="2010">2010</option>
+							<option value="2009">2009</option>
+                          <option value="2008">2008</option>
+                          <option value="2007">2007</option>
+                          <option value="2006">2006</option>
+                          <option value="2005">2005</option>
+                          <option value="2004">2004</option>
+                          <option value="2003">2003</option>
+                          <option value="2002">2002</option>
+                          <option value="2001">2001</option>
+                          <option value="2000">2000</option>
+                          <option value="1999">1999</option>
+                          <option value="1998">1998</option>
+                          <option value="1997">1997</option>
+                          <option value="1996">1996</option>
+                          <option value="1995">1995</option>
+                          <option value="1994">1994</option>
+                          <option value="1993">1993</option>
+                          <option value="1992">1992</option>
+                          <option value="1991">1991</option>
+							<option value="1990">1990</option>
+							<option value="1989">1989</option>
+                          <option value="1988">1988</option>
+                          <option value="1987">1987</option>
+                          <option value="1986">1986</option>
+                          <option value="1985">1985</option>
+                          <option value="1984">1984</option>
+                          <option value="1983">1983</option>
+                          <option value="1982">1982</option>
+                          <option value="1981">1981</option>
+						<option value="1980">1980</option>
+                        </select>
+                      
+                    </p>
+                  <p> Examination&nbsp;
+                      <select id="drpExamType" name="ExamType">
+
+
+					  <option  value="NOV/DEC">PRIVATE CANDIDATE RESULTS</option>
+					  <option  value="MAY/JUN">SCHOOL CANDIDATE RESULTS</option>
+
+
+
+			  
+                        </select>
+                    
+                    </p>
+					<p> PIN
+                    <input id="txtPIN" maxlength="16" size="16" type="password" />
+                    
+                    </p>
+                  <p>
+                  <p> Serial No
+                    <input id="txtCardSerialNo" maxlength="14" size="14" type="text" />
+                    
+                    </p>
+                  
+                      
+                      
+                    &nbsp;
+                    <input id="Button1" onclick="test();" type="button" value="Submit" class="button" />
+                    <br />
+                    Have you had any problem checking your result earlier? Send an email to:<br />
+
+                    <a href="mailto:customersupport@vatebra.com" target="_blank" class="style17"><u>Online Support</u></a> <br />Tel: 01-9049320<br />
+					0700VATEBRA (0700 828 3272)
+                  </p></td>
+              </form>
+               
+            </tr>
+            
+            <tr>
+                <td class='yellow' style="text-align:left">                      
+                     <ol>
+						<li>Enter your 10-digit WAEC Examination Number. <br /> (This is your 7-Digit centre number followed by your 3-digit candidate number <span class='smalltxt' align="right">eg. 4123456789</span>).<br />
+							For examination year < 1999, enter your 8-digit WAEC Examination Number. <br /> (This is your 5-Digit centre number followed by your 3-digit candidate number <span class='smalltxt' align="right">eg. 19865001</span>) 
+						</li>
+						<li>Enter the 4 digits of your Examination Year <span class='smalltxt'>eg. 2002</span> </li>
+						<li>Select the Type of Examination </li>
+						<li>Enter the  e-PIN Voucher Number </li>
+						<li>Enter the Personal Identification Number (PIN) on your e-PIN <span class='smalltxt'> </span> </li>
+						<li> Click Submit and wait for the results window to come up </li>
+					</ol>
+				</td>
+               
+            </tr>
+			
+			<tr>
+				<td>
+					<div class="container" style="background-color: #2a2a72!important;">
+					<div class="columns">
+					<div class="column is-5-desktop has-text-centered-touch ptxs">
+
+
+					<div class="buttons-apps has-text-centered-touch">
+					<a class="button app-icon" href="#" target="_blank">
+					<img src="images/apple.svg?v=1596116892"/>
+					</a>
+					<a class="button app-icon" href="https://play.google.com/store/apps/details?id=com.vatebra.waec_unified_result_checker" target="_blank">
+					<img src="images/android.svg?v=1596116892"/>
+					</a>
+					</div>
+					</div>
+					</div>
+					</div>
+				</td>
+			</tr>
+	
+            
+            <tr>
+               
+
+                <td class='yellow' style='padding-top: 10px; padding-right: 20px;'>
+			<div id="advert8"></div>           
+			
+                    </td>
+            </tr>
+             <tr>
+               
+
+                <td class='yellow' style='padding-top: 10px; padding-right: 20px;'>
+			<div id="advert4"></div>           
+			
+                    </td>
+            </tr>
+        </table>
+
+
+
+        </td>
+        <td width='100%' class='purple'>
+<table width='100%' height='100%' border='0' cellspacing='0' cellpadding='0' align='left'>
+        <tr>
+       <td height="10" colspan="3" bgcolor="#E9D772" class='style11'><span class="style12">&nbsp;&nbsp;<span class="style14">
+	   
+	  
+  <marquee> WASSCE Private Candidate 2023, SECOND SERIES Normal Registration is on-going. Closing date for Generation of PIN is Friday, August 11, 2023. Intending candidates are to finish their Biometrics capturing and Online Upload by 11:59pm on Sunday August 13, 2023.</marquee>
+</marquee>
+	   
+	   </span></span>
+       </td>
+            </tr>
+            <tr>
+            <td align="center" bgcolor="#312576" height='10'> ADVERTISEMENT</td>
+              <td align="center" bgcolor="#312576" height='10'>ADVERTISEMENT</td>
+               <td align="center" bgcolor="#312576" height='10'>ADVERTISEMENT</td>
+            </tr>
+           
+
+
+     <tr>
+             <td valign="top" class='purple'style="background-color:#8B7ED6" width="300" height="250">
+              
+             
+            
+            
+                  <div id="advert">
+                  
+              
+                  </div>           
+			
+			
+                   
+              
+              
+              
+              </td>
+              
+            <td valign="top" class='purple' style="background-color:#8B7ED6" width="300" height="250">
+              
+            
+            
+            
+                  <div id="advert6">
+                
+                  
+                  </div>           
+			
+			
+                   
+              
+              
+              
+              </td>
+           <td valign="top" class='purple' style="background-color:#8B7ED6" width="300" height="250">
+              
+           
+            
+            
+                  <div id="advert7">
+                
+                 
+                  </div>           
+			
+			
+                   
+              
+              
+              
+              </td>
+           
+           </tr> 
+            
+             
+
+
+              
+         
+            
+            <tr>
+            
+            
+            
+             <td  class='purple' style="background-color:#8B7ED6" width="300" height="250">
+              
+            
+                       
+		<div id="advert2">
+    
+        </div> 
+                          
+        
+        		
+                    </td>
+          <td  class='purple' style="background-color:#8B7ED6" width="300" height="250">
+              
+              
+                       
+		<div id="advert3">
+        
+        </div> 
+                           		
+                </td>
+				 <td class='purple' style="background-color:#8B7ED6" width="300" height="250">
+              
+              
+                       
+		<div id="advert5">
+       
+        </div>  
+                          		
+                </td>
+            </tr>
+            
+            <tr>
+              <td class='title' height='10'> Frequently Asked Questions (FAQ)</td>
+              <td class='title' height='10'>New Improved SMS Usage!</td>
+                <td class='title' height='10'></td>
+            </tr>
+            <tr>
+              <td height='179' class='purple' style='padding-top: 20px;'><ul>
+                  <li><a href='faq.htm#1' class='faq'>What is an e-PIN?</a> </li>
+            
+                <li><a href='faq.htm#3' class='faq'>Where can I buy an e-PIN?</a> </li>
+                <li><a href='faq.htm#4' class='faq'>How many times can I check my results?</a> </li>
+                <li><a href='faq.htm#5' class='faq'>Can I use one e-PIN to check more than one
+                  result?</a> 
+                                                                    <!--<li> What information is available on this service? ...more  -->
+                  </li>
+<li><a href='faq.htm#6' class='faq'>I have a problem in checking my WAEC result Please help?</a></li>
+<li><a href='faq.htm#7' class='faq'>I have being trying to check my result but the WAEC page is not loading</a></li>
+<li><a href='faq.htm#8' class='faq'>I went to the WAEC portal and filled in the required details only to see a page telling me there is no result for the candidate in the specified year. Please what do I do?</a></li>
+<br /><a href='faq.htm' class='faq'>...more</a>
+              </ul></td>
+              <td height='179' class='purple' style='padding-top: 20px;'><ul>
+                  <li>Send SMS in the format below:<br />
+                      <span class="style5">WAEC*ExamNo*PIN*ExamYear</span><br />
+                    To short-code <span class="style6">32327</span> (MTN, Celtel &amp; Glo subscribers) 
+                  </li>
+                  <li>For example -: <br />
+                    <span class="style6">WAEC*4250101001*123456789012*2007</span> <br />
+                    <span class="style9">Note: </span><span class="style8"> <br />
+                      Ensure you adhere strictly to the format above. There should be no space in the
+                      message.</span> 
+                  </li>
+                  <li>Wait for your result to be delivered to your phone via SMS. <span class="style3"> (SMS Cost N30 Only)</span> <br />
+                  </li>
+                </ul>
+                
+                </td>
+             <td height='179' class='purple' style='padding-top: 20px;'> <div id="advert9">
+                
+                  
+                  </div>
+            </tr>
+            
+            
+            
+           
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td width="86%" align="right" valign="middle" bgcolor="#FFFFFF"><span class="style16">Powered by</span>:</td>
+    <td width="14%" align="center" valign="middle"><a href="http://www.vatebra.com"><img src="images/vatebra-logoblack.png" width="165" height="48" border="0" /></a></td>
+  </tr>
+</table>
+
+
+
+
+<!-- The Modal -->
+<div id="complaintModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+<div>
+<div>
+<div>
+<div style="text-align:left;">
+<h4><strong>TIME LIMIT FOR CANDIDATES TO CHALLENGE IN COURT, THE DECISIONS OF THE NIGERIA EXAMINATIONS COMMITTEE (NEC) ON EXAMINATION MALPRACTICE</strong></h4>
+<p style="margin:1em 0">
+The West African Examinations Council (WAEC), wishes to inform candidates, stakeholders and the general public that there is now a time limit for them to challenge the decisions of the Nigeria Examinations Committee (NEC) on examination malpractice cases.
+This is because NEC, which is the Council's highest decision making organ on examination-related matters rose from its 71st meeting held from Tuesday, 27th to Wednesday, 28th April, 2021 with the following decisions:
+</p>
+<p style="margin:1em 0">
+<ol>
+<li>Allexhibits should be disposed of one (1) year after the release of results;</li>
+<li>The decision to dispose of exhibits one year after the release of results should be publicized using the Council's website, social media, paid advertisements, schools and direct contact with candidates;</li>
+<li>Appeals against NEC decisions should be received from affected schools/candidates within one (1) year from the date of the release of results of the examination;</li>
+<li>Appeals against decisions taken years ago should cease after one (1) year from this decision taken at the 71st Meeting of NEC;</li>
+<li>All exhibits in storage in the Council should be properly disposed of at the expiration of a period of one (1) year from the date of the decision of this Committee if there are no pending litigations that would require them.</li>
+</ol>
+</p>
+<p style="margin:1em 0">
+This development is in keeping with the Council's Vision and Mission and in consonance with international best practices.
+Candidates, stakeholders and the general public should therefore, take note.
+</p>
+<p style="margin:1em 0">
+</p><h5><strong>MANAGEMENT</strong></h5>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">  
+var modal = document.getElementById("complaintModal");
+var btn = document.getElementById("complaintBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
